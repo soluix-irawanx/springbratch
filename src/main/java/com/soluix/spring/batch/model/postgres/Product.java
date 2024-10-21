@@ -1,5 +1,4 @@
-package com.soluix.spring.batch.model;
-
+package com.soluix.spring.batch.model.postgres;
 
 import jakarta.persistence.*;
 import lombok.Data;

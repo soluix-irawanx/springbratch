@@ -1,13 +1,15 @@
 package com.soluix.spring.batch.services;
 
-import com.soluix.spring.batch.model.Product;
-import com.soluix.spring.batch.model.User;
-import com.soluix.spring.batch.repository.ProductRepository;
-import com.soluix.spring.batch.repository.UserRepository;
+import com.soluix.spring.batch.model.postgres.Product;
+import com.soluix.spring.batch.model.mysql.User;
+import com.soluix.spring.batch.repository.postgres.ProductRepository;
+import com.soluix.spring.batch.repository.mysql.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+@Service
 public class DemoService {
     @Autowired
     UserRepository userRepository;
@@ -24,10 +26,11 @@ public class DemoService {
     }
 
     @Transactional("postgresTransactionManager")
-    public Product createProduct(String name, Double price) {
+    public Long createProduct(String name, Double price) {
         Product product = new Product();
         product.setName(name);
         product.setPrice(price);
-        return productRepository.save(product);
+        Product saveProduct = productRepository.save(product);
+        return saveProduct.getId();
     }
 }

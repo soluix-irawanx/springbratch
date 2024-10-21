@@ -21,7 +21,7 @@ import javax.sql.DataSource;
 @EnableJpaRepositories(
         entityManagerFactoryRef = "postgresEntityManagerFactory",
         transactionManagerRef = "postgresTransactionManager",
-        basePackages = {"com.example.multipledatasource.repository.postgres"}
+        basePackages = {"com.soluix.spring.batch.repository.postgres"}
 )
 public class PostgresTwoConfig {
 
@@ -37,7 +37,7 @@ public class PostgresTwoConfig {
             @Qualifier("postgresDataSource") DataSource dataSource) {
         return builder
                 .dataSource(dataSource)
-                .packages("com.example.multipledatasource.model.postgres")
+                .packages("com.soluix.spring.batch.model.postgres")
                 .persistenceUnit("postgres")
                 .build();
     }

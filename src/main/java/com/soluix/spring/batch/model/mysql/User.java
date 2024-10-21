@@ -1,4 +1,4 @@
-package com.soluix.spring.batch.model;
+package com.soluix.spring.batch.model.mysql;
 
 import jakarta.persistence.*;
 import lombok.Data;

@@ -14,7 +14,6 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-
 import javax.sql.DataSource;
 
 @Configuration
@@ -22,7 +21,7 @@ import javax.sql.DataSource;
 @EnableJpaRepositories(
         entityManagerFactoryRef = "mysqlEntityManagerFactory",
         transactionManagerRef = "mysqlTransactionManager",
-        basePackages = {"com.example.multipledatasource.repository.mysql"}
+        basePackages = {"com.soluix.spring.batch.repository.mysql"}
 )
 public class MySqlConfig {
 
@@ -40,7 +39,7 @@ public class MySqlConfig {
             @Qualifier("mysqlDataSource") DataSource dataSource) {
         return builder
                 .dataSource(dataSource)
-                .packages("com.example.multipledatasource.model.mysql")
+                .packages("com.soluix.spring.batch.model.mysql")
                 .persistenceUnit("mysql")
                 .build();
     }
