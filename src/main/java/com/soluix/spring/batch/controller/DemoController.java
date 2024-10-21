@@ -24,9 +24,8 @@ public class DemoController {
     }
 
     @PostMapping("/products")
-    public ResponseEntity<Product> createProduct(@RequestParam String name, @RequestParam Double price) {
+    public Product createProduct(@RequestParam String name, @RequestParam Double price) {
         return demoService.createProduct(name, price);
-        return ResponseEntity.ok()
 
     }
 

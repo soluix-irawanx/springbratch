@@ -26,11 +26,10 @@ public class DemoService {
     }
 
     @Transactional("postgresTransactionManager")
-    public Long createProduct(String name, Double price) {
+    public Product createProduct(String name, Double price) {
         Product product = new Product();
         product.setName(name);
         product.setPrice(price);
-        Product saveProduct = productRepository.save(product);
-        return saveProduct.getId();
+        return productRepository.save(product);
     }
 }
