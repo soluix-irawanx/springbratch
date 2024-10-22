@@ -22,12 +22,11 @@ import javax.sql.DataSource;
         basePackages = "com.soluix.spring.batch.repository.mysql",
         entityManagerFactoryRef = "mysqlEntityManagerFactory",
         transactionManagerRef = "mysqlTransactionManager"
-
 )
 public class MySqlConfig {
 
     @Primary
-    @Bean(name = "mysqlDataSource")
+    @Bean(name = "mysqlDataSource") // configurasi nama bean MYsql dataSource
     @ConfigurationProperties(prefix = "mysql.datasource")
     public DataSource dataSource() {
         return DataSourceBuilder.create().build();

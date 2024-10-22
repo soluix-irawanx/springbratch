@@ -23,10 +23,10 @@ import javax.sql.DataSource;
         transactionManagerRef = "postgresTransactionManager",
         basePackages = {"com.soluix.spring.batch.repository.postgres"}
 )
-public class PostgresTwoConfig {
+public class PostgresConfig {
 
-    @Bean(name = "postgresDataSource")
-    @ConfigurationProperties(prefix = "postgres.datasource")
+    @Bean(name = "postgresDataSource") // configurasi nama bean MYsql dataSource
+    @ConfigurationProperties(prefix = "postgres.datasource") // application properti
     public DataSource dataSource() {
         return DataSourceBuilder.create().build();
     }
