@@ -19,9 +19,10 @@ import javax.sql.DataSource;
 @Configuration
 @EnableTransactionManagement
 @EnableJpaRepositories(
+        basePackages = "com.soluix.spring.batch.repository.mysql",
         entityManagerFactoryRef = "mysqlEntityManagerFactory",
-        transactionManagerRef = "mysqlTransactionManager",
-        basePackages = {"com.soluix.spring.batch.repository.mysql"}
+        transactionManagerRef = "mysqlTransactionManager"
+
 )
 public class MySqlConfig {
 
